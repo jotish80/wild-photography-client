@@ -6,6 +6,7 @@ import Register from "../../Pages/Home/Login/Register";
 import Services from "../../Pages/Services/Services";
 import ServiceDetails from "../../Pages/Services/ServiceDetails";
 import NotFound from "../../Pages/NoteFound/NotFound";
+import Blog from "../../Pages/Blog/Blog";
 
 
 
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
                 // loader: ({params}) =>{fetch(`services.json/services/${params.id}`)},
                 element: <ServiceDetails />,
                
+            },
+            {
+                path: '/blog',
+                element: <Blog />
             },
             {
                 path:'*',
