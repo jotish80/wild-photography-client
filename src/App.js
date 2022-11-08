@@ -6,7 +6,7 @@ import { Children } from 'react';
 
 function App() {
   return (
-    <div className="">
+    <div className="max-w-screen-xl mx-auto">
         <RouterProvider router={router}>
           {Children}
         </RouterProvider>
