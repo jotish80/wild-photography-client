@@ -4,6 +4,8 @@ import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Home/Login/Login";
 import Register from "../../Pages/Home/Login/Register";
 import Services from "../../Pages/Services/Services";
+import ServiceDetails from "../../Pages/Services/ServiceDetails";
+import NotFound from "../../Pages/NoteFound/NotFound";
 
 
 
@@ -28,6 +30,16 @@ const router = createBrowserRouter([
                 path: '/services',
                 element: <Services />
             },
+            {
+                path: '/services/:id',
+                // loader: ({params}) =>{fetch(`services.json/services/${params.id}`)},
+                element: <ServiceDetails />,
+               
+            },
+            {
+                path:'*',
+                element: <NotFound />
+            }
         ]
     }
 ])
