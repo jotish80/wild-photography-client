@@ -1,12 +1,36 @@
-import React from 'react';
+ 
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png'
+import { FaUser } from 'react-icons/fa';
+import { AuthContext } from '../../contexts/UseContext';
+import { useContext } from 'react';
 
 const Header = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user);
+
+     const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
     const menuItems = 
      <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
-        <li className='font-semibold'><Link to='/login'>Login</Link></li>
+        <>
+                                {user?.uid ?
+                            <>     
+                                <li className='font-semibold'><Link to='/' onClick={handleLogOut}>LogOut</Link></li>
+                            </>
+                            :
+                            <>
+                                <li className='font-semibold'><Link to='/login'>Login</Link></li>
+                            </>
+                            }
+         
+        </>
     </>
     return (
           <div className="navbar h-20 mb-12 pt-12 bg-base-100">
@@ -20,7 +44,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <Link to="/" className="btn btn-ghost normal-case text-xl">
-                    <img className='w-[60px]' src={logo} alt="" />
+                    <img className='w-[50px]' src={logo} alt="" />
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -29,7 +53,16 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-             
+                
+              {user?.photoURL ?
+                            <>
+                                <p>{user.displayName}</p>
+                                <img className='rounded-lg' style={{ height: '30px' }} src={user.photoURL} alt="" /> 
+                                
+                            </>
+
+                            : <FaUser />
+                        }
             </div>
         </div>
     );
