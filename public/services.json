@@ -1,113 +1,107 @@
 [
     {
-        "_id": "635a0c0b64a6d231228942ae",
         "service_id": "04",
         "title": "Zebra Photography",
         "img": "https://i.ibb.co/rddQ7qF/jason-zhao-A-Isj-Kp-PXCE-unsplash.jpg",
         "price": "30.00",
         "description": "A zebra does not change its spots. When you hear hoof beats, think horses, not zebras.When you shoot a zebra in the black stripe, the white dies too.",
-        "facility": [
+        "review": [
             {
-                "name": "Instant Photo Services",
+                "name": "Max",
                 "details": "In medical school many doctors are taught the old saying “when you hear hoof beats, think horses, not zebras"
             },
             {
-                "name": "24/7 Quality photography Service",
+                "name": "Mark",
                 "details": "Doctors should consider the most likely possibility first when thinking of a diagnosis."
             }
            
         ]
     },
     {
-        "_id": "635a0c0b64a6d231228942af",
         "service_id": "05",
         "title": "Bears Photography",
         "img": "https://i.ibb.co/NjgMHf3/anthony-renovato-6-Hx-C-f-Zjl-I0-unsplash.jpg",
         "price": "40.00",
         "description": "There is even archaeological evidence that Paleolithic tribes honored the animal as well since ancient bear bones have been found buried in a specific way that could have been done in a ceremony performed by neanderthals.",
-        "facility": [
+        "review": [
             {
-                "name": "Instant Bears Photo Services",
+                "name": "Julia",
                 "details": "It’s no wonder that humans are fascinated with bears."
             },
             {
-                "name": "24/7 Quality Service",
+                "name": "Marina",
                 "details": "In this list of bear quotes, you will see why they have remained such a revered animal throughout time."
             }
            
         ]
     },
     {
-        "_id": "635b591a1dafe382a9da8c96",
         "service_id": "01",
         "title": "Buffalo Photography",
         "img": "https://i.ibb.co/JH418Ww/ray-rui-a8-JLna-Mgv-Xo-unsplash.jpg",
         "price": "70.00",
         "description": "Cows run away from the storm while the buffalo charges toward it - and gets through it quicker. Whenever I’m confronted with a tough challenge, I do not prolong the torment, I become the buffalo.",
-        "facility": [
+        "review": [
             {
-                "name": "Instant Photo Services",
+                "name": "Robert",
                 "details": "Historically the buffalo had more influence on man than all other Plains animals combined. It was life, food, raiment, and shelter to the Indians. The buffalo and the Plains Indians lived together, and together passed away. The year 1876 marks practically the end of both."
             },
             {
-                "name": "24/7 Quality photography Service",
+                "name": "Russel",
                 "details": "The extermination of the buffalo has been a veritable tragedy of the animal world."
             }
             
         ]
     },
     {
-        "_id": "635b5afc1dafe382a9da8c98",
         "service_id": "02",
         "title": "Koala Photography",
         "img": "https://i.ibb.co/VMktXx3/zizhang-cheng-t-X8-M-Xteu4-Y-unsplash.jpg",
         "price": "50.00",
         "description": "My apartment is infested with koala bears. It's the cutest infestation ever. Way better than cockroaches. When I turn on the light a bunch of koala bears scatter. But I don't want 'em to, you know, I'm like Hey, hold on, fellas. Let me hold one of you. And feed you a leaf.",
-        "facility": [
+        "review": [
             {
-                "name": "Instant Photo Services",
+                "name": "John",
                 "details": "I want to go to Australia and take the same goofy picture of me holding a koala that everyone else takes."
             },
             {
-                "name": "24/7 Quality Photo Service",
+                "name": "Wick",
                 "details": "My scratching I don't really think communicates to intelligent life forms. Anyone with more than one brain cell would think Kid Koala music is completely retarded."
             }
              
         ]
     },
     {
-        "_id": "635b5b691dafe382a9da8c99",
         "service_id": "03",
         "title": "Lions Photography",
         "img": "https://i.ibb.co/Dkcp3Nk/geran-de-klerk-y-Ki-LWMWqu-KE-unsplash.jpg",
         "price": "40.00",
         "description": "It's a mystery, replied the Lion. I suppose I was born that way. All the other animals in the forest naturally expect me to be brave, for the Lion is everywhere thought to be the King of Beasts. I learned that if I roared very loudly every living thing was frightened and got out of my way.",
-        "facility": [
+        "review": [
             {
-                "name": "Instant Photo Services",
+                "name": "Tom",
                 "details": "Some people lose all respect for the lion unless he devours them instantly. There is no pleasing some people."
             },
             {
-                "name": "24/7 Quality photography Service",
+                "name": "Amanda",
                 "details": "The lion is an emblem of the dream of absolute power -- and, as a wild rather than a domestic animal, he belongs to a world outside the realm of society and culture."
             }
             
         ]
     },
     {
-        "_id": "635b5ba51dafe382a9da8c9a",
         "service_id": "06",
         "title": "Rhino Photography",
         "img": "https://i.ibb.co/chYFHyK/david-clode-zsal-Jqy-CY8-M-unsplash.jpg",
         "price": "20.00",
         "description": "To write a book such as Tiger Bone & Rhino Horn is a formidable undertaking. You must accumulate thousands of facts and spare no detail, no matter how terrible. It is always easier to write a piece of fluff and leave everybody smiling. But then, the horrors of poaching would continue unchallenged?like as tent caterpillars consuming an apple orchard, our species mindlessly consumes the others of the earth. At present, the most significant hope for our planet may be knowledge, and Richard Ellis has done a heroic job in providing a large measure of that.",
-        "facility": [
+        "review": [
             {
-                "name": "Instant Rhino photo Services",
+                "name": "Robinson",
                 "details": "Tibet has a very proud people but it's culturally gone and overrun ever since the Chinese took over. It's like saving the rhino. When a species is endangered, it's gone."
             },
             {
-                "name": "24/7 Quality Service",
+                "name": "Alex",
                 "details": "A writer who has published as many books as I have has developed, of necessity, a hide like a rhino's, while inside there dwells a frail, hopeful butterfly of a spirit."
             }
            

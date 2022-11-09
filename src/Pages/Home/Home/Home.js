@@ -10,7 +10,7 @@ const Home = () => {
     const [services, setServices] = useState([]);
     const navigate = useNavigate()
     useEffect( () =>{
-        fetch('services.json')
+        fetch('http://localhost:5000/services')
         .then(res =>res.json())
         .then(data => setServices(data))
     }, [])
@@ -18,6 +18,7 @@ const Home = () => {
     <div>
       <Banner />
       <>
+      <h2 className="text-5xl font-semibold text-center my-10"> Services</h2>
       <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-6'>
         {
           services.slice(0,3).map(service => <ServiceCard

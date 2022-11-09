@@ -8,7 +8,7 @@ const Banner = () => {
     <div className="max-w-md">
       <h1 className="mb-5 text-5xl font-bold">Wild Photography</h1>
       <p className="mb-5">“Look deep into nature, and then you will understand everything better.” Adopt the pace of nature: her secret is patience.”  </p>
-      <button className="btn btn-info">Get Started</button>
+      <button className="btn btn-outline btn-info">Get Started</button>
     </div>
   </div>
 </div>

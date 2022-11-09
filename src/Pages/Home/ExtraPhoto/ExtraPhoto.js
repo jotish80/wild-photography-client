@@ -16,7 +16,7 @@ const ExtraPhoto = () => {
                 <div className="card-body">
                     <h2 className="card-title"> </h2>
                     <div className="card-actions justify-center">
-                        <button className="btn btn-info ">Special</button>
+                        <button className="btn btn-outline btn-info ">Special</button>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@ const ExtraPhoto = () => {
                 <div className="card-body">
                     <h2 className="card-title"> </h2>
                     <div className="card-actions justify-center">
-                        <button className="btn btn-info ">Special</button>
+                        <button className="btn btn-outline btn-info ">Special</button>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@ const ExtraPhoto = () => {
                 <div className="card-body">
                     <h2 className="card-title"> </h2>
                     <div className="card-actions justify-center">
-                        <button className="btn btn-info ">Special</button>
+                        <button className="btn btn-outline btn-info ">Special</button>
                     </div>
                 </div>
             </div>
