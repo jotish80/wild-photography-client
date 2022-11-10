@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../contexts/UseContext';
 
@@ -44,7 +44,7 @@ const ServiceDetails = () => {
                 console.log(data)
                 setChanges(data)
                 if(data.acknowledged){
-                    toast('Reviews placed successfully')
+                    toast('Reviews placed successfully', { position: 'top-center' })
                     form.reset();
                     
                 }
@@ -53,27 +53,7 @@ const ServiceDetails = () => {
 
      }
 
-    //    const handleStatusUpdate = id => {
-    //     fetch(`http://localhost:5000/review/${id}`, {
-    //         method: 'PATCH', 
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify({status: 'Approved'})
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data);
-    //         if(data.modifiedCount > 0) {
-    //             const remaining = orders.filter(odr => odr._id !== id);
-    //             const approving = orders.find(odr => odr._id === id);
-    //             approving.status = 'Approved'
-
-    //             const newReview = [approving, ...remaining];
-    //             setOrders(newOrders);
-    //         }
-    //     })
-    // }
+ 
 
     
     return (
@@ -94,13 +74,15 @@ const ServiceDetails = () => {
                  <h2 className="text-2xl">You are about to Review: {title}</h2>
                 <h4 className="text-xl">Price: {price}</h4>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
-                    <input name="Name" type="text" placeholder="Name" defaultValue={user.displayName} className="input input-ghost w-full  input-bordered" />
+                    <input name="Name" type="text" placeholder="Name" defaultValue={user?.displayName} className="input input-ghost w-full  input-bordered" />
                     
                     <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />
                 </div>
                 <textarea name="message" className="textarea textarea-bordered h-24 w-full mt-4" placeholder="Your Review" required></textarea>
                 <input className='btn mt-4' type="submit" value="Place Your Review" />
-                
+                <Link to="/reviews" >
+                    <button className="btn btn-warning ml-5 ">Please log in to see your review</button>
+                </Link>
             </form>
                 {
                     reviews.map(r => <p className=' font-semibold'>{r.message}</p>)
@@ -118,7 +100,8 @@ const ServiceDetails = () => {
                 <p>Price: $ {price}</p>
                 <p>{description}</p>
                 <div className="card-actions">
-                <button className="btn btn-primary">Buy Now</button>
+                <button className="btn btn-info">Buy Now</button>
+                
                 </div>
             </div>
             </div>

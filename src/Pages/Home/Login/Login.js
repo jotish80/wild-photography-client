@@ -13,16 +13,16 @@ const Login = () => {
      
     const navigate = useNavigate();
     const [error, setError] = useState('');
-    // const location = useLocation();
+    const location = useLocation();
 
-    // let from = location.state?.from?.pathname || '/header';
+    let from = location.state?.from?.pathname || '/header';
 
      const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                // navigate(from, {replace: true});
+                navigate(from, {replace: true});
             })
             .catch(error => console.error(error))
     }
@@ -41,7 +41,7 @@ const Login = () => {
             console.log(user);
             form.reset();
             setError('');
-            // navigate(from, {replace: true});
+            navigate(from, {replace: true});
         })
         .catch(error => {
             console.error(error);

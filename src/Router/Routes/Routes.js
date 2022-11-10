@@ -9,6 +9,7 @@ import NotFound from "../../Pages/NoteFound/NotFound";
 import Blog from "../../Pages/Blog/Blog";
 import MyReviews from "../../Pages/Reviews/MyReviews";
 import AddService from "../../Pages/AddService/AddService";
+import PrivateRoute from "../Routes/PrivateRoute"
 
 
 
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/reviews',
-                element: <MyReviews />
+                element: <PrivateRoute><MyReviews /></PrivateRoute>
             },
             {
                 path: '/blog',
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addService',
-                element: <AddService />
+                element: <PrivateRoute><AddService /></PrivateRoute>
             },
             {
                 path:'*',

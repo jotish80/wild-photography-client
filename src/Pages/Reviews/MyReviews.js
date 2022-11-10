@@ -23,7 +23,7 @@ const MyReviews = () => {
             .then(data => {
                 console.log(data);
                 if (data.deletedCount > 0){
-                    toast('deleted successfully');
+                    toast('deleted successfully',{ position:'top-center'});
                     const remaining = reviews.filter(odr => odr._id !== id);
                     setReviews(remaining);
                 }

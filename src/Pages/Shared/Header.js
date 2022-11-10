@@ -21,16 +21,18 @@ const Header = () => {
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/services'>Services</Link></li>
         <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
-        <li className='font-semibold'><Link to='/reviews'>My Review</Link></li>
-        <li className='font-semibold'><Link to='/addService'>Add Service</Link></li>
+     
         <>
                                 {user?.uid ?
                             <>     
+                                <li className='font-semibold'><Link to='/reviews'>My Review</Link></li>
+                                <li className='font-semibold'><Link to='/addService'>Add Service</Link></li>
                                 <li className='font-semibold'><Link to='/' onClick={handleLogOut}>LogOut</Link></li>
                             </>
                             :
                             <>
                                 <li className='font-semibold'><Link to='/login'>Login</Link></li>
+                                
                             </>
                             }
          
