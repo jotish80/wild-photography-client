@@ -7,7 +7,7 @@ import Services from "../../Pages/Services/Services";
 import ServiceDetails from "../../Pages/Services/ServiceDetails";
 import NotFound from "../../Pages/NoteFound/NotFound";
 import Blog from "../../Pages/Blog/Blog";
-import Reviews from "../../Pages/Reviews/Reviews";
+import MyReviews from "../../Pages/Reviews/MyReviews";
 
 
 
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/reviews',
-                element: <Reviews />
+                element: <MyReviews />
             },
             {
                 path: '/blog',

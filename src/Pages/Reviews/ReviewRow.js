@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 
-const ReviewRow = ({review, handleDelete}) => {
-    const{message, _id} = review;
+const ReviewRow = ({ review, handleDelete, handleStatusUpdate }) => {
+    const { message, _id } = review;
     console.log(message);
-    const [reviewService, setReviewService] = useState({})
+    const [reviewService, setReviewService] = useState({});
+    const [showInput, setShowInput] = useState(false);
 
-    //   useEffect(() => {
-    //     fetch(`http://localhost:5000/services/${service}`)
-    //         .then(res => res.json())
-    //         .then(data => setReviewService(data));
-    // }, [service])
-    //onClick={() => handleDelete(_id)}
+    
+    const [updatedReview, setUpdatedReview] = useState();
+     
+    const handleReviewUpdate =(_id) => {
+        fetch(`http://localhost:5000/review/${_id}`)
+        .then(res => res.json())
+        .then(data => console.log(data))
+    }
+ 
     return (
         <tr>
             <ToastContainer />
@@ -22,23 +26,31 @@ const ReviewRow = ({review, handleDelete}) => {
             </th>
             <td>
                 <div className="flex items-center space-x-3">
-                   
+
                     <div>
-                        <div className="font-bold">{message}</div>
-                         
+
+                        {
+                            showInput ? <input type="text" onChange={e =>setUpdatedReview(e.target.value)} defaultValue={message} />
+                                :
+                                <div className="font-bold">{message}</div>
+                        }
+
                     </div>
+                    <button onClick={()=>setShowInput(true)}>Edit</button>
                 </div>
             </td>
             <td>
-                {/* {serviceName} */}
-                <br />
-                {/* <span className="badge badge-ghost badge-sm">${price}</span> */}
+
             </td>
-           
+
             <th>
-                <button 
-                // onClick={() => handleStatusUpdate(_id)}
-                className="btn btn-ghost btn-xs">Update</button>
+                <button
+
+                    onClick={() => handleReviewUpdate(_id)}
+                    className="btn btn-ghost btn-xs">Update
+
+                </button>
+
             </th>
         </tr>
     );

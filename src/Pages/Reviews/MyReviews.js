@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/UseContext';
 import ReviewRow from './ReviewRow';
 
-const Reviews = () => {
+const MyReviews = () => {
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([])
 
@@ -30,9 +30,31 @@ const Reviews = () => {
             })
         }
     }
+
+     const handleStatusUpdate = id => {
+        fetch(`http://localhost:5000/reviews/${id}`, {
+            method: 'PATCH', 
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({status: 'Approved'})
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.modifiedCount > 0) {
+                const remaining = reviews.filter(odr => odr._id !== id);
+                const approving = reviews.find(odr => odr._id === id);
+                approving.status = 'Approved'
+
+                const newOrders = [approving, ...remaining];
+                setReviews(newOrders);
+            }
+        })
+    }
     return (
         <div>
-            <h2 className="text-5xl">You have {reviews.length} Reviews</h2>
+           
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <thead>
@@ -50,7 +72,7 @@ const Reviews = () => {
                                 key={review._id}
                                 review={review}
                                 handleDelete={handleDelete}
-                                // handleStatusUpdate={handleStatusUpdate}
+                                handleStatusUpdate={handleStatusUpdate}
                             ></ReviewRow>)
                         }
                     </tbody>
@@ -60,4 +82,4 @@ const Reviews = () => {
     );
 };
 
-export default Reviews;
+export default MyReviews;
