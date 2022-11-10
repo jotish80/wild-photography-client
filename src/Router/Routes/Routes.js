@@ -8,6 +8,7 @@ import ServiceDetails from "../../Pages/Services/ServiceDetails";
 import NotFound from "../../Pages/NoteFound/NotFound";
 import Blog from "../../Pages/Blog/Blog";
 import MyReviews from "../../Pages/Reviews/MyReviews";
+import AddService from "../../Pages/AddService/AddService";
 
 
 
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog />
+            },
+            {
+                path: '/addService',
+                element: <AddService />
             },
             {
                 path:'*',

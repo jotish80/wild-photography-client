@@ -11,9 +11,16 @@ const ReviewRow = ({ review, handleDelete, handleStatusUpdate }) => {
     const [updatedReview, setUpdatedReview] = useState();
      
     const handleReviewUpdate =(_id) => {
-        fetch(`http://localhost:5000/review/${_id}`)
+        fetch(`http://localhost:5000/reviews/${_id}`,{
+            method: 'PATCH',
+             headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({message: updatedReview})
+        })
         .then(res => res.json())
         .then(data => console.log(data))
+        .catch(error => console.log(error))
     }
  
     return (
@@ -21,7 +28,7 @@ const ReviewRow = ({ review, handleDelete, handleStatusUpdate }) => {
             <ToastContainer />
             <th>
                 <label>
-                    <button onClick={() => handleDelete(_id)} className='btn btn-ghost'>X</button>
+                    <button onClick={() => handleDelete(_id)} className='btn btn-ghost'>Delete</button>
                 </label>
             </th>
             <td>
@@ -30,7 +37,7 @@ const ReviewRow = ({ review, handleDelete, handleStatusUpdate }) => {
                     <div>
 
                         {
-                            showInput ? <input type="text" onChange={e =>setUpdatedReview(e.target.value)} defaultValue={message} />
+                            showInput ? <input className='p-2 border border-gray-300 rounded' type="text" onChange={(e) =>setUpdatedReview(e.target.value)} defaultValue={message} />
                                 :
                                 <div className="font-bold">{message}</div>
                         }
@@ -47,7 +54,7 @@ const ReviewRow = ({ review, handleDelete, handleStatusUpdate }) => {
                 <button
 
                     onClick={() => handleReviewUpdate(_id)}
-                    className="btn btn-ghost btn-xs">Update
+                    className="btn btn-ghost">Update
 
                 </button>
 
