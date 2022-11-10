@@ -1,10 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../contexts/UseContext';
 
 const ServiceDetails = () => {
-     const {title,img,description,price, review} = useLoaderData();
+     const {_id, title,img,description,price, review} = useLoaderData();
      const {user} = useContext(AuthContext);
+     const [reviews, setReviews] = useState([]);
+     const [changes, setChanges] = useState({});
+
+    console.log(reviews);
+        useEffect(() => {
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [changes])
+     
 
      const handleReview = event => {
         event.preventDefault();
@@ -14,9 +25,10 @@ const ServiceDetails = () => {
         const message = form.message.value;
 
         const singleReview = {
-           
-            name,
-         
+            service: _id,
+            serviceName: title,
+            customer: name,
+            price,
             email,
             message
         }
@@ -30,8 +42,9 @@ const ServiceDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                setChanges(data)
                 if(data.acknowledged){
-                    alert('Reviews placed successfully')
+                    toast('Reviews placed successfully')
                     form.reset();
                     
                 }
@@ -39,6 +52,28 @@ const ServiceDetails = () => {
             .catch(er => console.error(er));
 
      }
+
+    //    const handleStatusUpdate = id => {
+    //     fetch(`http://localhost:5000/review/${id}`, {
+    //         method: 'PATCH', 
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify({status: 'Approved'})
+    //     })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         console.log(data);
+    //         if(data.modifiedCount > 0) {
+    //             const remaining = orders.filter(odr => odr._id !== id);
+    //             const approving = orders.find(odr => odr._id === id);
+    //             approving.status = 'Approved'
+
+    //             const newReview = [approving, ...remaining];
+    //             setOrders(newOrders);
+    //         }
+    //     })
+    // }
 
     
     return (
@@ -52,19 +87,25 @@ const ServiceDetails = () => {
                             <p className=' font-semibold'>{rev.details}</p>
                     </div>)
                 }
-                
+                <ToastContainer />
                 </div>
                 <div className='my-4'>
                      <form onSubmit={handleReview}>
-                
+                 <h2 className="text-2xl">You are about to Review: {title}</h2>
+                <h4 className="text-xl">Price: {price}</h4>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
-                    <input name="Name" type="text" placeholder="Name" className="input input-ghost w-full  input-bordered" />
+                    <input name="Name" type="text" placeholder="Name" defaultValue={user.displayName} className="input input-ghost w-full  input-bordered" />
                     
                     <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />
                 </div>
                 <textarea name="message" className="textarea textarea-bordered h-24 w-full mt-4" placeholder="Your Review" required></textarea>
                 <input className='btn mt-4' type="submit" value="Place Your Review" />
+                
             </form>
+                {
+                    reviews.map(r => <p className=' font-semibold'>{r.message}</p>)
+                }
+             
                 </div>
             </div>
             <div className='w-2/4'>
