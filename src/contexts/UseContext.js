@@ -1,19 +1,19 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth,onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../firebase/firebase.config';
- 
+
 
 
 export const AuthContext = createContext();
 
 
-const UserContext = ({children}) => {
+const UserContext = ({ children }) => {
 
     const auth = getAuth(app);
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    
-  
+
+
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
@@ -25,7 +25,7 @@ const UserContext = ({children}) => {
     }
 
     const updateUserProfile = (profile) => {
-        return updateUserProfile(auth.currentUser,profile);
+        return updateUserProfile(auth.currentUser, profile);
     }
 
     const logOut = () => {
@@ -38,11 +38,11 @@ const UserContext = ({children}) => {
         return signInWithPopup(auth, provider);
     }
 
-    
 
-   
-    useEffect(()=>{
-      const unsubscribe =  onAuthStateChanged(auth, currentUser =>{
+
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
             console.log(currentUser);
             setUser(currentUser);
             setLoading(false);
@@ -52,18 +52,18 @@ const UserContext = ({children}) => {
             unsubscribe()
         }
 
-    },[])
+    }, [])
 
     const authInfo = {
-         user,
-         loading,
-         providerLogin,
-         logOut,
-         createUser, 
-         signIn, 
-         updateUserProfile,
-         
-        };
+        user,
+        loading,
+        providerLogin,
+        logOut,
+        createUser,
+        signIn,
+        updateUserProfile,
+
+    };
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

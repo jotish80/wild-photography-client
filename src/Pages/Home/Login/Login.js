@@ -15,7 +15,7 @@ const Login = () => {
     const [error, setError] = useState('');
     const location = useLocation();
 
-    let from = location.state?.from?.pathname || '/header';
+    let from = location.state?.from?.pathname || '/';
 
      const handleGoogleSignIn = () => {
         providerLogin(googleProvider)

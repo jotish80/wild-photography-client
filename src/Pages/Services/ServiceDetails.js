@@ -52,17 +52,14 @@ const ServiceDetails = () => {
             .catch(er => console.error(er));
 
      }
-
- 
-
-    
+   
     return (
         <div className='flex justify-around align-center my-5 mx-auto gap-5 flex-col lg:flex-row'>
             <div className='w-2/4'>
                 <div>
-                <h1 className='text-3xl font-bold'>All Reviews</h1>
+                <h1 className='text-3xl font-bold mb-5'>All Reviews</h1>
                 {
-                    review.map(rev => <div rev={rev}>
+                    review.map(rev => <div className='mb-5' rev={rev}>
                             <h1 className='text-xl font-semibold'>{rev.name}</h1>
                             <p className=' font-semibold'>{rev.details}</p>
                     </div>)
@@ -81,7 +78,7 @@ const ServiceDetails = () => {
                 <textarea name="message" className="textarea textarea-bordered h-24 w-full mt-4" placeholder="Your Review" required></textarea>
                 <input className='btn mt-4' type="submit" value="Place Your Review" />
                 <Link to="/reviews" >
-                    <button className="btn btn-warning ml-5 ">Please log in to see your review</button>
+                    <button className="btn btn-warning ml-5 ">Please login to see your review</button>
                 </Link>
             </form>
                 {

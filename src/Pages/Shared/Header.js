@@ -1,4 +1,4 @@
- 
+
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png'
 import { FaUser } from 'react-icons/fa';
@@ -10,36 +10,36 @@ const Header = () => {
     const { user, logOut } = useContext(AuthContext);
     console.log(user);
 
-     const handleLogOut = () => {
+    const handleLogOut = () => {
         logOut()
             .then(() => { })
             .catch(error => console.error(error))
     }
 
-    const menuItems = 
-     <>
-        <li className='font-semibold'><Link to='/'>Home</Link></li>
-        <li className='font-semibold'><Link to='/services'>Services</Link></li>
-        <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
-     
+    const menuItems =
         <>
-                                {user?.uid ?
-                            <>     
-                                <li className='font-semibold'><Link to='/reviews'>My Review</Link></li>
-                                <li className='font-semibold'><Link to='/addService'>Add Service</Link></li>
-                                <li className='font-semibold'><Link to='/' onClick={handleLogOut}>LogOut</Link></li>
-                            </>
-                            :
-                            <>
-                                <li className='font-semibold'><Link to='/login'>Login</Link></li>
-                                
-                            </>
-                            }
-         
+            <li className='font-semibold'><Link to='/'>Home</Link></li>
+            <li className='font-semibold'><Link to='/services'>Services</Link></li>
+            <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
+
+            <>
+                {user?.uid ?
+                    <>
+                        <li className='font-semibold'><Link to='/reviews'>My Review</Link></li>
+                        <li className='font-semibold'><Link to='/addService'>Add Service</Link></li>
+                        <li className='font-semibold'><Link to='/' onClick={handleLogOut}>LogOut</Link></li>
+                    </>
+                    :
+                    <>
+                        <li className='font-semibold'><Link to='/login'>Login</Link></li>
+
+                    </>
+                }
+
+            </>
         </>
-    </>
     return (
-          <div className="navbar h-20 mb-12 pt-12 bg-base-100">
+        <div className="navbar h-20 mb-12 pt-12 bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -53,7 +53,7 @@ const Header = () => {
                     <img className='w-[50px]' src={logo} alt="" />
                     <p className='text-xl font-semibold'>Photography</p>
                 </Link>
-                
+
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
@@ -61,16 +61,16 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                
-              {user?.photoURL ?
-                            <>
-                                <p>{user.displayName}</p>
-                                <img className='rounded-lg' style={{ height: '30px' }} src={user.photoURL} alt="" /> 
-                                
-                            </>
 
-                            : <FaUser />
-             }
+                {user?.photoURL ?
+                    <>
+                        <p className='mr-5'>{user?.displayName}</p>
+                        <img className='rounded-lg' style={{ height: '30px' }} src={user.photoURL} alt="" />
+
+                    </>
+
+                    : <FaUser />
+                }
             </div>
         </div>
     );
