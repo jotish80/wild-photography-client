@@ -4,14 +4,14 @@ import ServiceCard from '../../Services/ServiceCard'
 import Banner from '../Banner/Banner';
 import Contact from '../Contact/Contact';
 import ExtraPhoto from '../ExtraPhoto/ExtraPhoto';
-import { Link, useNavigate} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import useTitle from '../../../Hooks/UseTitle';
 
 const Home = () => {
     const [services, setServices] = useState([]);
     const navigate = useNavigate()
     useEffect( () =>{
-        fetch('http://localhost:5000/services')
+        fetch('https://wild-photography-server-ten.vercel.app/services')
         .then(res =>res.json())
         .then(data => setServices(data))
     }, []);

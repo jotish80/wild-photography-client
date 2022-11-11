@@ -12,7 +12,7 @@ const ServiceDetails = () => {
 
     console.log(reviews);
         useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        fetch(`https://wild-photography-server-ten.vercel.app/reviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [changes])
@@ -38,7 +38,7 @@ const ServiceDetails = () => {
             email,
             message
         }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://wild-photography-server-ten.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

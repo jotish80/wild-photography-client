@@ -14,7 +14,7 @@ function AddService() {
 
     async function addNewService(e) {
         e.preventDefault();
-        fetch(`http://localhost:5000/services`, {
+        fetch(`https://wild-photography-server-ten.vercel.app/services`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

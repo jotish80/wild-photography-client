@@ -10,7 +10,7 @@ const ReviewRow = ({ review, handleDelete }) => {
     const [updatedReview, setUpdatedReview] = useState();
 
     const handleReviewUpdate = (_id) => {
-        fetch(`http://localhost:5000/reviews/${_id}`, {
+        fetch(`https://wild-photography-server-ten.vercel.app/reviews/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
