@@ -5,6 +5,7 @@ import Banner from '../Banner/Banner';
 import Contact from '../Contact/Contact';
 import ExtraPhoto from '../ExtraPhoto/ExtraPhoto';
 import { Link, useNavigate} from 'react-router-dom';
+import useTitle from '../../../Hooks/UseTitle';
 
 const Home = () => {
     const [services, setServices] = useState([]);
@@ -13,7 +14,9 @@ const Home = () => {
         fetch('http://localhost:5000/services')
         .then(res =>res.json())
         .then(data => setServices(data))
-    }, [])
+    }, []);
+
+    useTitle('Home');
   return (
     <div>
       <Banner />

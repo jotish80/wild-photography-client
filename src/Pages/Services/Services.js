@@ -13,6 +13,12 @@ const Services = () => {
                 setServices(data)
             })
     }, [])
+       if (services.length == 0) {
+      return <button type="button" class="bg-indigo-500 ..." disabled>
+         <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg>
+         Processing...
+      </button>
+   }
     return (
         <div>
             <div className='text-center mb-4 mt-14'>
@@ -21,6 +27,7 @@ const Services = () => {
                 <p className="text-2xl font-bold mt-2">"In the world of photography, you get to share a captured moment with other people."  </p>
             </div>
             <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                 
                 {
                     services.map(service => <ServiceCard
                         key={service._id}

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, Navigate, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../contexts/UseContext';
 
@@ -8,6 +8,7 @@ const ServiceDetails = () => {
      const {user} = useContext(AuthContext);
      const [reviews, setReviews] = useState([]);
      const [changes, setChanges] = useState({});
+     const navigate = useNavigate();
 
     console.log(reviews);
         useEffect(() => {
@@ -18,6 +19,11 @@ const ServiceDetails = () => {
      
 
      const handleReview = event => {
+       if(!user){
+         navigate('/login');
+         return;
+       }
+      
         event.preventDefault();
         const form = event.target;
         const name = form.name.value  ;
@@ -76,7 +82,9 @@ const ServiceDetails = () => {
                     <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />
                 </div>
                 <textarea name="message" className="textarea textarea-bordered h-24 w-full mt-4" placeholder="Your Review" required></textarea>
+                
                 <input className='btn mt-4' type="submit" value="Place Your Review" />
+
                 <Link to="/reviews" >
                     <button className="btn btn-warning ml-5 ">Please login to see your review</button>
                 </Link>
