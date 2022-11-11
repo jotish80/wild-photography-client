@@ -7,7 +7,7 @@
  * Home page contain navbar, header, front view of services. Every link I used Route.
  * Single service have a button where you can click and going dynamically in service details page.
  * You can set review and as wel as delete and update.
- * Blog route you can read blog also you have chart of statistics.
+ * Blog route you can read blog of some important questions.
  * Technology I used like React, Express, MongoDB as a database, Node, css tailwind and library like daisyUI.
 
 ### `npm start`
