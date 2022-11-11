@@ -2,6 +2,7 @@
 import React, { useContext, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../contexts/UseContext';
+import useTitle from '../../Hooks/UseTitle';
 
 
 
@@ -29,6 +30,7 @@ function AddService() {
 
 
     }
+     useTitle('Add Services');
     return (
         <>
 

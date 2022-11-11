@@ -3,6 +3,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/UseContext';
+import useTitle from '../../../Hooks/UseTitle';
  
 
 
@@ -49,7 +50,7 @@ const Login = () => {
         })
     }
 
-
+     useTitle('Login');
     return (
         <div className='flex justify-center items-center pt-8 mt-24'>
             <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>

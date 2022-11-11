@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/UseContext';
+import useTitle from '../../Hooks/UseTitle';
 import ReviewRow from './ReviewRow';
 
 const MyReviews = () => {
@@ -31,7 +32,7 @@ const MyReviews = () => {
         }
     }
 
-     
+      useTitle('My Reviews');
     return (
         <div>
 

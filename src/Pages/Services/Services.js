@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import useTitle from '../../Hooks/UseTitle';
 import ServiceCard from './ServiceCard';
 
 
@@ -13,6 +14,7 @@ const Services = () => {
                 setServices(data)
             })
     }, [])
+    useTitle('Services');
     if (services.length == 0) {
         return <button type="button" class="bg-indigo-500 ..." disabled>
             <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
@@ -20,6 +22,7 @@ const Services = () => {
             Processing...
         </button>
     }
+     
     return (
         <div>
             <div className='text-center mb-4 mt-14'>

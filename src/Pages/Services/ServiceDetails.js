@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, Navigate, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../contexts/UseContext';
+import useTitle from '../../Hooks/UseTitle';
 
 const ServiceDetails = () => {
      const {_id, title,img,description,price, review} = useLoaderData();
@@ -58,7 +59,7 @@ const ServiceDetails = () => {
             .catch(er => console.error(er));
 
      }
-   
+    useTitle('Services');
     return (
         <div className='flex justify-around align-center my-5 mx-auto gap-5 flex-col lg:flex-row'>
             <div className='w-2/4'>
